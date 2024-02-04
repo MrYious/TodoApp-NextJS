@@ -8,10 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors:{
+        // text-[color:hsl(0,0%,98%)]
+      },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'bg-desktop-dark': "url('/bg-desktop-dark.jpg')",
+        'bg-desktop-light': "url('/bg-desktop-light.jpg')",
+        'bg-mobile-dark': "url('/bg-mobile-dark.jpg')",
+        'bg-mobile-light': "url('/bg-mobile-light.jpg')",
       },
     },
   },
