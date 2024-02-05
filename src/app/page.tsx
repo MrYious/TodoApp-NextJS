@@ -73,8 +73,9 @@ export default function Home() {
     }
   }
 
+  // ${theme === 'light' ? '' : ''}
   return (
-    <main className={`${theme === 'light' ? 'bg-bg-desktop-light bg-[hsl(236,33%,92%)]' : 'bg-bg-desktop-dark'} min-h-screen bg-no-repeat  flex justify-center`}>
+    <main className={`${theme === 'light' ? 'bg-bg-desktop-light bg-white' : 'bg-bg-desktop-dark bg-gray-900'} min-h-screen bg-no-repeat  flex justify-center`}>
       <div className="flex flex-col w-1/2 p-20">
         {/* HEADER */}
         <div className="flex items-center justify-between w-full">
@@ -92,15 +93,15 @@ export default function Home() {
           </button>
         </div>
         {/* INPUT */}
-        <div className="flex text-lg border-2 bg-white border-white rounded-md mt-12 py-4 px-5 items-center gap-5">
-          <div className=" rounded-full border-[1px] border-black w-6 h-6 shrink-0"></div>
+        <div className={`${theme === 'light' ? 'bg-white' : 'bg-gray-800'} flex text-lg rounded-md mt-12 py-4 px-5 items-center gap-5`}>
+          <div className={`${theme === 'light' ? 'border-gray-300' : 'border-gray-600'} rounded-full border-[1px]  w-6 h-6 shrink-0`}></div>
           <input
             type="text"
             name="todo"
             id="todo"
             value={text}
             onChange={(e)=>{setText(e.target.value)}}
-            className="outline-none w-full bg-white"
+            className="outline-none w-full bg-transparent"
             placeholder="Create a new todo..."
             onKeyDown={handleKeyPress}
           />
