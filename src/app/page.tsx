@@ -94,14 +94,14 @@ export default function Home() {
         </div>
         {/* INPUT */}
         <div className={`${theme === 'light' ? 'bg-white' : 'bg-gray-800'} flex text-lg rounded-md mt-12 py-4 px-5 items-center gap-5`}>
-          <div className={`${theme === 'light' ? 'border-gray-300' : 'border-gray-600'} rounded-full border-[1px]  w-6 h-6 shrink-0`}></div>
+          <div className={`${theme === 'light' ? 'border-gray-300' : 'border-gray-600'} rounded-full border-[1px] w-6 h-6 shrink-0`}></div>
           <input
             type="text"
             name="todo"
             id="todo"
             value={text}
             onChange={(e)=>{setText(e.target.value)}}
-            className="outline-none w-full bg-transparent"
+            className={`${theme === 'light' ? 'text-black' : 'text-white'} outline-none w-full bg-transparent`}
             placeholder="Create a new todo..."
             onKeyDown={handleKeyPress}
           />
