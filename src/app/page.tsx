@@ -15,18 +15,23 @@ export default function Home() {
   const [tasks, setTasks] = useState([
     {
       id: uuidv4(),
-      state: 'Active',
-      text: 'Laundry'
-    },
-    {
-      id: uuidv4(),
       state: 'Completed',
-      text: 'Code Code Code'
+      text: 'Eat'
     },
     {
       id: uuidv4(),
       state: 'Active',
-      text: 'Learn interview questions'
+      text: 'Sleep'
+    },
+    {
+      id: uuidv4(),
+      state: 'Active',
+      text: 'Code'
+    },
+    {
+      id: uuidv4(),
+      state: 'Active',
+      text: 'Repeat'
     },
   ])
 
