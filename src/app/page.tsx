@@ -81,6 +81,9 @@ export default function Home() {
   return (
     <main className={`${theme === 'light' ? 'bg-bg-desktop-light bg-white' : 'bg-bg-desktop-dark bg-gray-900'} min-h-screen bg-no-repeat  flex justify-center`}>
       <div className="flex flex-col w-full sm:w-2/3 md:w-3/4 lg:w-4/5 xl:w-1/2 p-10 sm:p-20">
+        <a href="https://markrosario.vercel.app/" target="_blank" className={`${theme === 'light' ? 'text-black' : 'text-white'} text-sm absolute bottom-0 right-0 p-2`}>
+          Made with ❤️ by Mark Rosario
+        </a>
         {/* HEADER */}
         <div className="flex items-center justify-between w-full">
           <div className="tracking-[0.4em] text-4xl text-white font-bold">
