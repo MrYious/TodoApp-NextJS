@@ -9,7 +9,7 @@ import sun from "./_assets/icon-sun.svg";
 import { v4 as uuidv4 } from 'uuid';
 
 export default function Home() {
-  const [theme, setTheme] = useState('Light') //Light-Dark
+  const [theme, setTheme] = useState('light') //light-dark
   const [text, setText] = useState('')
   const [filter, setFilter] = useState('All') //All-Active-Completed
   const [tasks, setTasks] = useState([
@@ -54,7 +54,7 @@ export default function Home() {
   }
 
   const toggleTheme = () => {
-    setTheme(theme === 'Light' ? 'Dark' : 'Light')
+    setTheme(theme === 'light' ? 'dark' : 'light')
   }
 
   const handleKeyPress = (e: any) => {
@@ -74,21 +74,22 @@ export default function Home() {
   }
 
   return (
-    <main className="bg-bg-desktop-light min-h-screen bg-no-repeat bg-white flex justify-center ">
+    <main className={`${theme === 'light' ? 'bg-bg-desktop-light bg-[hsl(236,33%,92%)]' : 'bg-bg-desktop-dark'} min-h-screen bg-no-repeat  flex justify-center`}>
       <div className="flex flex-col w-1/2 p-20">
         {/* HEADER */}
         <div className="flex items-center justify-between w-full">
-          <div className=" tracking-[0.4em] text-4xl text-white font-bold">
+          <div className="tracking-[0.4em] text-4xl text-white font-bold">
             TODO
           </div>
-          <Image
-            onClick={toggleTheme}
-            className="cursor-pointer"
-            src={theme === 'Light'? moon : sun}
-            alt="My SVG"
-            width={25}
-            height={25}
-          />
+          <button onClick={toggleTheme}>
+            <Image
+              className="cursor-pointer"
+              src={theme === 'light'? moon : sun}
+              alt="My SVG"
+              width={25}
+              height={25}
+            />
+          </button>
         </div>
         {/* INPUT */}
         <div className="flex text-lg border-2 bg-white border-white rounded-md mt-12 py-4 px-5 items-center gap-5">
