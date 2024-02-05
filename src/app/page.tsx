@@ -35,6 +35,11 @@ export default function Home() {
     setTasks(updatedTasks)
   }
 
+  const handleDeleteTask = (id: string) => {
+    const updatedTasks = tasks.filter((task) => task.id !== id)
+    setTasks(updatedTasks)
+  }
+
   const toggleState = (id: string) => {
     const updatedTasks = tasks.map(task => {
       if (task.id === id) {
@@ -104,7 +109,7 @@ export default function Home() {
           {/* List */}
           {
             tasks.filter((task) => task.state === filter || filter === "All" ).map((task, i) =>
-              <Task key={task.id} task={task} toggleState={toggleState} />
+              <Task key={task.id} task={task} toggleState={toggleState} handleDeleteTask={handleDeleteTask}/>
             )
           }
           {/* Status Bar */}
