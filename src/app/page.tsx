@@ -73,7 +73,6 @@ export default function Home() {
     }
   }
 
-  // ${theme === 'light' ? '' : ''}
   return (
     <main className={`${theme === 'light' ? 'bg-bg-desktop-light bg-white' : 'bg-bg-desktop-dark bg-gray-900'} min-h-screen bg-no-repeat  flex justify-center`}>
       <div className="flex flex-col w-full sm:w-2/3 md:w-3/4 lg:w-4/5 xl:w-1/2 p-10 sm:p-20">

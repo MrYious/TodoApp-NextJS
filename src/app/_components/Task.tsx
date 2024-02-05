@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function Task(props: { theme: string; toggleState: (id: string)=> void; handleDeleteTask: (id: string) => void; task: { id: string; state: string, text: string }}){
     const [isHover, setIsHover] = useState(false)
     return(
-        <div key={props.task.id} className="flex py-4 px-5 items-center gap-5 border-b-[1px] border-gray-200 ">
+        <div key={props.task.id} className={`${props.theme === 'light' ? 'border-gray-200' : 'border-gray-700'} flex py-4 px-5 items-center gap-5 border-b-[1px]`}>
             <span className="cursor-pointer select-none" onClick={()=>{props.toggleState(props.task.id)}}>
                 {
                     props.task.state === "Active" ?
