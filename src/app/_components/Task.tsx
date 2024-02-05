@@ -13,9 +13,9 @@ export default function Task(props: { toggleState: (id: string)=> void; handleDe
                         <div className=" bg-white rounded-full border-[1px] border-black w-6 h-6 shrink-0">
                         </div>
                     :  props.task.state === "Completed" ?
-                        <div className=" flex justify-center items-center bg-white rounded-full border-[1px] border-black w-6 h-6 shrink-0">
+                        <div className=" flex justify-center p-1 items-center bg-black rounded-full border-[1px] border-black w-6 h-6 shrink-0">
                             <Image
-                                className=" text-black "
+                                className=""
                                 src={check}
                                 alt="My SVG"
                                 width={25}
