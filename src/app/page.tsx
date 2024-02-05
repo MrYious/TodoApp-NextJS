@@ -106,32 +106,35 @@ export default function Home() {
             onKeyDown={handleKeyPress}
           />
         </div>
-
-        <div className="flex-col border-[1px] border-black mt-5 rounded-md bg-gray-100 text-lg shadow-sm shadow-gray-400">
-          {/* List */}
+        {/* LIST */}
+        <div className={`${theme === 'light' ? 'bg-white shadow-gray-400' : 'bg-gray-800 shadow-gray-900'} flex-col mt-5 rounded-md text-lg shadow-sm `}>
+          {/* Todos */}
           {
             tasks.filter((task) => task.state === filter || filter === "All" ).map((task, i) =>
-              <Task key={task.id} task={task} toggleState={toggleState} handleDeleteTask={handleDeleteTask}/>
+              <Task key={task.id} theme={theme} task={task} toggleState={toggleState} handleDeleteTask={handleDeleteTask}/>
             )
           }
           {/* Status Bar */}
-          <div className="flex justify-between items-center rounded-b-md text-xs font-bold py-3 px-5 ">
-            <div className="text-gray-500">
+          <div className={`${theme === 'light' ? 'text-gray-400' : 'text-gray-500'} flex justify-between items-center rounded-b-md text-xs py-3 px-5 `}>
+            <div className="font-semibold w-1/3 text-left">
               {tasks.filter((task)=> task.state === 'Active').length} items left
             </div>
-            <div className="flex gap-3">
-              <button className={` hover:text-black ${filter === 'All' ? 'text-blue-800' : 'text-gray-500' }`} onClick={()=>{setFilter('All')}}>
-                All
-              </button>
-              <button className={` hover:text-black ${filter === 'Active' ? 'text-blue-800' : 'text-gray-500' }`} onClick={()=>{setFilter('Active')}}>
-                Active
-              </button>
-              <button className={` hover:text-black ${filter === 'Completed' ? 'text-blue-800' : 'text-gray-500' }`} onClick={()=>{setFilter('Completed')}}>
-                Completed
-              </button>
+            <div className="flex gap-3 font-bold w-1/3 text-center">
+              {
+                ['All', 'Active', 'Completed'].map((text,i) =>
+                  theme === 'light' ?
+                    <button key={i} className={`${filter === text ? 'text-blue-800' : 'text-gray-500 hover:text-black' }`} onClick={()=>{setFilter(text)}}>
+                      {text}
+                    </button>
+                  :
+                    <button key={i} className={`${filter === text ? 'text-blue-600' : 'text-gray-500 hover:text-white' }`} onClick={()=>{setFilter(text)}}>
+                      {text}
+                    </button>
+                )
+              }
             </div>
-            <div>
-              <button className="text-gray-500 hover:text-black" onClick={handleClearCompleted}>Clear Completed</button>
+            <div className=" w-1/3 text-right">
+              <button className={` hover:text-black font-semibold`} onClick={handleClearCompleted}>Clear Completed</button>
             </div>
           </div>
         </div>
