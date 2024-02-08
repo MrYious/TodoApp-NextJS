@@ -53,7 +53,6 @@ export default function Home() {
   // ])
 
   useEffect(() => {
-    console.log('THEN')
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks])
 
