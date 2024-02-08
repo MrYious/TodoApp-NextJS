@@ -8,49 +8,18 @@ import moon from "./_assets/icon-moon.svg";
 import sun from "./_assets/icon-sun.svg";
 import { v4 as uuidv4 } from 'uuid';
 
-let initialTask = () => {
+export default function Home() {
   interface Item {
     id: string;
     state: string;
     text: string;
   }
-  const data = localStorage.getItem('tasks');
-  if(data){
-    const parsedData = JSON.parse(data) as Item[];
-    return(parsedData)
-  } else {
-    return []
-  }
-};
-
-export default function Home() {
-
+  const data = typeof window !== 'undefined' ? localStorage.getItem('tasks') : false
+  const iniTask = data ? JSON.parse(data) as Item[] : []
   const [theme, setTheme] = useState('light') //light-dark
   const [text, setText] = useState('')
   const [filter, setFilter] = useState('All') //All-Active-Completed
-  const [tasks, setTasks] = useState(initialTask());
-  // ([
-  //   {
-  //     id: uuidv4(),
-  //     state: 'Completed',
-  //     text: 'Eat'
-  //   },
-  //   {
-  //     id: uuidv4(),
-  //     state: 'Active',
-  //     text: 'Sleep'
-  //   },
-  //   {
-  //     id: uuidv4(),
-  //     state: 'Active',
-  //     text: 'Code'
-  //   },
-  //   {
-  //     id: uuidv4(),
-  //     state: 'Active',
-  //     text: 'Repeat'
-  //   },
-  // ])
+  const [tasks, setTasks] = useState(data ? iniTask : [] )
 
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
