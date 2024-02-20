@@ -8,18 +8,20 @@ import moon from "./_assets/icon-moon.svg";
 import sun from "./_assets/icon-sun.svg";
 import { v4 as uuidv4 } from 'uuid';
 
+interface Item {
+  id: string;
+  state: string;
+  text: string;
+}
+
 export default function Home() {
-  interface Item {
-    id: string;
-    state: string;
-    text: string;
-  }
-  const data = typeof window !== 'undefined' ? localStorage.getItem('tasks') : false
-  const iniTask = data ? JSON.parse(data) as Item[] : []
+
+  const data = typeof window !== 'undefined' ? localStorage.getItem('tasks') : null
+
   const [theme, setTheme] = useState('light') //light-dark
   const [text, setText] = useState('')
   const [filter, setFilter] = useState('All') //All-Active-Completed
-  const [tasks, setTasks] = useState(data ? iniTask : [] )
+  const [tasks, setTasks] = useState<Item[]>(data ? JSON.parse(data) : [])
 
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
